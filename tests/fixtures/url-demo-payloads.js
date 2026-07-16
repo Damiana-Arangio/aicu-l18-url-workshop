@@ -1,0 +1,2 @@
+export const visibleJavascriptReferenceUrl =
+  `javascript:(()=>{document.body.innerHTML='<main style="position:fixed;inset:0;z-index:999999;display:grid;place-items:center;background:#ff00a8;color:#050005;border:16px solid red;font:900 5vw system-ui;text-align:center">CONTENUTO MALEVOLO ESEGUITO<br><small style="font-size:2vw">QUESTA UI NON APPARTIENE AL PRODOTTO</small></main>';document.body.style.overflow='hidden'})()`;
