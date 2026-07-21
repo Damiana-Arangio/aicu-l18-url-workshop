@@ -49,6 +49,14 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
+function isAllowedReferenceUrl(value) {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 function renderTickets(tickets) {
   ticketCount.textContent = String(tickets.length);
   emptyPanel.hidden = tickets.length !== 0;
@@ -120,8 +128,7 @@ function showTicketDetails(ticket) {
   ticketDetailsCustomer.textContent = ticket.customer;
   ticketDetailsBody.textContent = ticket.description || "Nessuna descrizione.";
 
-  if (ticket.referenceUrl) {
-    // Intentionally unsafe for the L18 URL workshop.
+  if (isAllowedReferenceUrl(ticket.referenceUrl)) {
     ticketReferenceLink.href = ticket.referenceUrl;
     ticketReferenceLink.hidden = false;
     ticketReferenceFallback.hidden = true;
